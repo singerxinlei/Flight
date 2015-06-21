@@ -143,25 +143,19 @@ void ordering(plinklist_Airline pl1,plinklist_customer pl2)
 void find_ralevent_airlane(plinklist_Airline pl,char*from,char*to)
 {
     pair p,q;
-	printf("hi");
+    printf("zhi da hang ban");
+    for(p=pl->head;p!=NULL&&!strcmp(p->start,from)&&!strcmp(q->end,to);p=p->next)
+    {
+        print_air(p);
+        
+    }
+    printf("zhuan ji hang ban");
     for(p=pl->head;p!=NULL&&!strcmp(p->start,from);p=p->next)
     {
-        printf("hello");
-		for(q=pl->head;q!=NULL&&!strcmp(q->end,to);q=q->next)
-            if(!strcmp(p->start,q->start))
+        for(q=pl->head;q!=NULL&&!strcmp(q->end,to);q=q->next)
+            if(!strcmp(p->end,q->start)&&q->time>p->time)
             {
-                if(!strcmp(p->time,q->time))
-                    print_air(p);
-                else
-                {
-                    print_air(p);
-                    print_air(q);
-                }
-            }
-            else if(!strcmp(p->end,q->start))
-            {
-                
-				print_air(p);
+                print_air(p);
                 print_air(q);
             }
     }

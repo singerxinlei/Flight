@@ -27,7 +27,7 @@ typedef struct Airline//º½°àĞÅÏ¢
 }Airline,*pair;
 pair creat_airline();
 void insert_infor_air(pair p);
-
+int is_inlist_airline(int num,plinklist_Airline pl);
 void insert_customer(pcus p);
 pcus creat_customer();
 void print_air(pair p);
