@@ -40,11 +40,13 @@ void search_air(plinklist_Airline pl)
     getchar();
     if(is_inlist_airline(num,pl))
     {
-        for(p=pl->head;num==p->airnum;p=p->next)
-            {
+        for(p=pl->head;p!=NULL;p=p->next)
+        {
+            if (num==p->airnum) {
                 print_air(p);
                 return;
             }
+        }
     }
     else
     {
@@ -176,13 +178,15 @@ void modify_air(plinklist_Airline pl)
             ;
         printf("请输入新信息：\n");
 		printf("航班号：");
-		scanf("%d",p->airnum);
+        scanf("%d",&(p->airnum));
 		getchar();
         insert_infor_air(p);
+    }else{
+        printf("zi ji tian jia~~~~~          ");
     }
 
 }
-void refund(plinklist_Airline pl1,plinklist_customer pl2)
+void refund(plinklist_customer pl2)
 {
     char id[20];
     pcus p,q;
