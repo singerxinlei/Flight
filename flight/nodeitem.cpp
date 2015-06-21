@@ -110,11 +110,7 @@ void import_air(plinklist_Airline pl)
             pair p;
             if((p=creat_airline())!=NULL)
             {
-                if(fscanf(fp,"%d%s%s%s%d%f%d%d",&(p->airnum),p->start,p->end,p->time,&(p->total),&(p->discount),&(p->left),&(p->price))==EOF)
-                {
-                    printf("¶ÁÈ¡Ê§°Ü£¡£¡£¡\n");
-                    exit(EXIT_FAILURE);
-                }
+                fscanf(fp,"%d%s%s%s%d%f%d%d",&(p->airnum),p->start,p->end,p->time,&(p->total),&(p->discount),&(p->left),&(p->price));
                 p->next=pl->head;
                 pl->head=p;
             }
@@ -136,11 +132,7 @@ void export_air(plinklist_Airline pl)
     }
     for(p=pl->head;p!=NULL;p=p->next)
     {
-        if((fprintf(fp,"%d%s%s%s%d%f%d%d",p->airnum,p->start,p->end,p->time,p->total,p->discount,p->left,p->price))==EOF)
-            {
-                printf("¶ÁÈ¡Ê§°Ü£¡£¡£¡\n");
-                exit(EXIT_FAILURE);
-            }
+        fprintf(fp,"%d%s%s%s%d%f%d%d",p->airnum,p->start,p->end,p->time,p->total,p->discount,p->left,p->price);
 
     }
 }
